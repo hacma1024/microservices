@@ -31,7 +31,7 @@ function run_image(){
     echo "===================================================="
     echo "=====       INVOKE HASH CONTAINER RUN        ====="
     echo "===================================================="
-    docker run -d --name hash_invoke --restart always $pref_org/invokehash:$ver
+    docker run -d --name hash_invokehlf --restart always $pref_org/invokehash:$ver
 
     echo
     echo "===================================================="
