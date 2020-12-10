@@ -62,16 +62,14 @@ def on_message(client, userdata, msg):
         }
     ]
     if station_id in databases:
-        # influx_client.switch_database(station_id)
-        # influx_client.write_points(json_body)
-        print(station_id)
+        influx_client.switch_database(station_id)
+        influx_client.write_points(json_body)
     else:
         if check_station(urlGetRecord, token, station_id) == 200:
             databases.add(station_id)
             influx_client.create_database(station_id)
-            # influx_client.switch_database(station_id)
-            # influx_client.write_points(json_body)
-            print("Exirst Station")
+            influx_client.switch_database(station_id)
+            influx_client.write_points(json_body)
 
 
 if __name__ == '__main__':
