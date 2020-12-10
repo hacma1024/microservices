@@ -35,7 +35,7 @@ while True:
                     'UV': round(uv + random.uniform(-0.003, 0.003), 3),
                     'PH': round(ph + random.uniform(-0.1, 0.1), 2)}
             stationData = json.dumps(data)
-            topic = "jwclab/" + data['DEVICE_ID']
+            topic = "datn/" + data['DEVICE_ID']
             client.publish(topic, stationData)
 
         for i in range(0, len(type2_station)):
@@ -46,7 +46,7 @@ while True:
                     'DO': round(uv + random.uniform(-0.003, 0.003), 3),
                     'ORP': round(ph + random.uniform(-0.1, 0.1), 2)}
             stationData = json.dumps(data)
-            topic = "jwclab/" + data['DEVICE_ID']
+            topic = "datn/" + data['DEVICE_ID']
             client.publish(topic, stationData)
 
         for i in range(0, len(type3_station)):
@@ -57,7 +57,7 @@ while True:
                     'CLO': round(uv + random.uniform(-0.003, 0.003), 3),
                     'PH': round(ph + random.uniform(-0.1, 0.1), 2)}
             stationData = json.dumps(data)
-            topic = "jwclab/" + data['DEVICE_ID']
+            topic = "datn/" + data['DEVICE_ID']
             client.publish(topic, stationData)
 
         time.sleep(15)

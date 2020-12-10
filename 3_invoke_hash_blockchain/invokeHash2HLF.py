@@ -85,6 +85,7 @@ def hashNoFilter(host_influx, port_influx, username_influx, password_influx):
 
             influx_client.switch_database(databaseName)
             influx_client.write_points(json_body)
+            # print(json_body)
 
             md5_hash = hashlib.md5()
             for k in range(0, len(data_list)):

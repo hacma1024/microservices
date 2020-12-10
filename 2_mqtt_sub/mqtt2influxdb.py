@@ -53,6 +53,7 @@ def on_connect(mqtt_client, userdata, flags, rc):
 
 def on_message(client, userdata, msg):
     dict_data = json.loads(msg.payload.decode("utf-8"))
+    # print(dict_data, databases)
     station_id = str(msg.topic).split("/")[1]
     json_body = [
         {
@@ -61,14 +62,16 @@ def on_message(client, userdata, msg):
         }
     ]
     if station_id in databases:
-        influx_client.switch_database(station_id)
-        influx_client.write_points(json_body)
+        # influx_client.switch_database(station_id)
+        # influx_client.write_points(json_body)
+        print(station_id)
     else:
         if check_station(urlGetRecord, token, station_id) == 200:
             databases.add(station_id)
             influx_client.create_database(station_id)
-            influx_client.switch_database(station_id)
-            influx_client.write_points(json_body)
+            # influx_client.switch_database(station_id)
+            # influx_client.write_points(json_body)
+            print("Exirst Station")
 
 
 if __name__ == '__main__':
